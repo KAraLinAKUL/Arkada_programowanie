@@ -1,0 +1,14 @@
+pygame.mixer.music.load() #granie muzyczki na tle
+pygame.mixer.music.set.volume() #głosność muzyczki
+pygame.mixer.music.play(-1) #muzyczka gra cały czas
+pygame.mixer.music.pause() #pauza muzyczki jeżeli gra wstrzymana
+pygame.mixer.music.unpause() #przerywanie pauzy
+#wyłączamy muzyczkę przy uderzeniu
+pygame.mixer.music.stop()
+#muzyczka przy skakaniu
+jump_sound = pygame.mixer.Sound("jumpsound.wav")
+#dodajemy do funkcji skakania
+if jump_costam == #taka sama cyfra jak i w funkcji
+    pygame.mixer.Sound.play(jump_sound)
+if jump_costam == #liczba
+    pygame.mixer.Sound.play(ouch) #dzwiek przy uderzeniu
