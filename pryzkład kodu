@@ -2,7 +2,7 @@ import pygame as pg
 import sys
 pg.init()
 sc = pg.display.set_mode((400, 300))
-pg.mixer.music.load('48bb90af8e1e401.mp3')
+pg.mixer.music.load('backround.mp3')
 pg.mixer.music.play()
 while 1:
     for i in pg.event.get():
