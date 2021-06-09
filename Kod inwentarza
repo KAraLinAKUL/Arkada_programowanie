@@ -1,0 +1,33 @@
+def stworzprzedmiot():
+    przedmiot = range(0, 9)
+    if przedmiot [8] != "pelny":
+        przedmiot[1] = ("Książka")
+        przedmiot[2] = ("Kolokwium")
+        przedmiot[3] = ("Oceny")
+        przedmiot[4] = ("Punkty")
+        przedmiot[5] = ("Dzień rektorski")
+        return przedmiot
+    else:
+        return przedmiot
+def stworzInwentarz():
+    inw = range(0, 9)
+    inw[10] = ("zrobione")
+    if inw[10] != ("zrobione"):
+        for i in range (0, 9):
+            inw[i] = 0
+    return inw
+
+def magazynInwentarza(przedmiot):
+    inw = stworzInwentarz()
+    for i in range (0, 9):
+        if inw[i] == 0:
+            inw[i] = przedmiot
+            break
+            return inw
+
+def sprawdzenieInwentarza(przedmiot):
+    przedmiot2 = przedmiot
+    inw = stworzInwentarz()
+    for i in range(0, 9):
+        if przedmiot2 == inw[i]:
+            return "yes"
