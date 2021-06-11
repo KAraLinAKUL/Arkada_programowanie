@@ -23,7 +23,7 @@ mala_czcionka = pygame.font.SysFont("Verdana", 15)
 postac = pygame.image.load("postac_początek.png")
 
 # ikonka
-icon = pygame.image.load("grad_cap_icon.jpg")
+icon = pygame.image.load("assets\grad_cap_icon.jpg")
 pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
