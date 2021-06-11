@@ -8,6 +8,10 @@ szary_kolor = (61,57,57)
 biały_kolor = (255,255,255)
 czarny_kolor = (0,0,0)
 
+# ikonka
+icon = pygame.image.load("assets\grad_cap_icon.jpg")
+pygame.display.set_icon(icon)
+
 pygame.display.set_caption("Kognigra")
 ekran.fill(biały_kolor)
 
