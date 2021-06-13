@@ -46,8 +46,6 @@ dzwiek_skoku = pg.mixer.Sound("jumpsound.wav")
 
 uderzenie = pg.mixer.Sound("ouch.mp3")
 
-przedmioty = ["Kolokwium", "Dzień rektorski", "Brak internetu"]
-
 
 class Student():
     pos_x = 70
