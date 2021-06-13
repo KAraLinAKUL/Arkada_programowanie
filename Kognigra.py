@@ -1,4 +1,3 @@
-import pygame
 import pygame as pg
 import sys, random
 
@@ -168,7 +167,7 @@ class Metodologia(Przeszkoda):
         ekran.blit(self.image[self.indeks//10], self.rect)
         self.indeks += 1
 
-class pasekHP(pygame.sprite.Sprite):
+class pasekHP(pg.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image = pg.Surface((40,40))
@@ -203,59 +202,6 @@ class pasekHP(pygame.sprite.Sprite):
 
 hp = pg.sprite.GroupSingle(pasekHP())
 
-class Inwentarz():
-    def __init__(self):
-        self.inwentarz = []
-        self.kolos = self.przedmioty[0]
-        self.wolne = self.przedmioty[1]
-        # self.internet = self.przedmioty[2]
-
-    def Kolokwium(self):
-        self.inwentarz.append(self.kolos)
-        
-
-
-    def
-
-
-
-#     def stworzprzedmiot(self):
-#         przedmiot = range(0, 9)
-#         if przedmiot [8] != "pelny":
-#             przedmiot[1] = ("Książka")
-#             przedmiot[2] = ("Kolokwium")
-#             przedmiot[3] = ("Oceny")
-#             przedmiot[4] = ("Punkty")
-#             przedmiot[5] = ("Dzień rektorski")
-#             return przedmiot
-#         else:
-#             return przedmiot
-#
-#     def stworzInwentarz(self):
-#         inw = range(0, 9)
-#         inw[10] = ("zrobione")
-#         if inw[10] != ("zrobione"):
-#             for i in range (0, 9):
-#                 inw[i] = 0
-#         return inw
-#
-#     def magazynInwentarza(self, przedmiot):
-#         inw = stworzInwentarz()
-#         for i in range (0, 9):
-#             if inw[i] == 0:
-#                 inw[i] = przedmiot
-#                 break
-#                 return inw
-#
-#     def sprawdzenieInwentarza(self, przedmiot):
-#         przedmiot2 = przedmiot
-#         inw = stworzInwentarz()
-#         for i in range(0, 9):
-#             if przedmiot2 == inw[i]:
-#                 return "yes"
-
-
-
 
 def akcja_start():
     global szybkosc_gry, pos_x_tlo, pos_y_tlo, punkty, przeszkody
@@ -263,7 +209,6 @@ def akcja_start():
     zegar = pg.time.Clock()
     czas_gry = pg.time.get_ticks()
     gracz = Student()
-    # inwent = Inwentarz()
     przeszkody = []
     punkty = 0
     pg.mixer.music.play()
@@ -290,16 +235,15 @@ def akcja_start():
 
     while run:
 
-        czas = (pygame.time.get_ticks()-czas_gry) / 1000
+        czas = (pg.time.get_ticks()-czas_gry) / 1000
         if czas > 60:
             koniec(smierc)
 
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 run = False
-            if event.type == pygame.KEYDOWN:
-                # to trzeba będzie zmienić żeby to zależało od przeszkód
-                if event.key == pygame.K_RIGHT:
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.K_RIGHT:
                     # wciśnięcie strzałki w górę - dodawanie życia o 200 pkt
                     hp.sprite.dodawanie_pkt_zycia(20)
 
@@ -310,7 +254,6 @@ def akcja_start():
             ekran.blit(tlo, (szerokosc+pos_x_tlo, pos_y_tlo))
             pos_x_tlo = 0
         pos_x_tlo -= szybkosc_gry
-        # inwent.draw(ekran)
 
         klikanie = pg.key.get_pressed()
 
@@ -402,15 +345,15 @@ def koniec(smierc):
             pg.display.flip()
 
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
 
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    pygame.quit()
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.K_SPACE:
+                    pg.quit()
 
-                elif event.key == pygame.K_RETURN:
+                elif event.key == pg.K_RETURN:
                     # po wcisnięciu enter, gra się rozpoczyna
                     akcja_start()
 
@@ -463,25 +406,25 @@ while True:
     polecenie2 = czcionka.render("wpisz swoje imię, a następnie wciśnij Enter:", False, czarny_kolor)
     ekran.blit(polecenie2, (0.25 * szerokosc, 0.65*wysokosc))
 
-    pygame.display.update()
+    pg.display.update()
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
             run = False
-            pygame.quit()
+            pg.quit()
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_BACKSPACE:
+        if event.type == pg.KEYDOWN:
+            if event.key == pg.K_BACKSPACE:
                 wpisz_imie = wpisz_imie[:-1]
-            elif event.key == pygame.K_RETURN:
+            elif event.key == pg.K_RETURN:
                 # po wcisnięciu enter, gra się rozpoczyna
                 akcja_start()
             else:
                 wpisz_imie += event.unicode
 
         # tworzenie pola do wpisania imienia
-        pygame.draw.rect(ekran, szary_kolor, pole_imie)
+        pg.draw.rect(ekran, szary_kolor, pole_imie)
         imie_czcionka = mala_czcionka.render(wpisz_imie, True, biały_kolor)
         ekran.blit(imie_czcionka, (pole_imie.x + 15, pole_imie.y + 10))
-        pygame.display.flip()
+        pg.display.flip()
         clock.tick(60)
