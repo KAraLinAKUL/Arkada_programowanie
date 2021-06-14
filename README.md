@@ -5,17 +5,3 @@ Naszym celem było wykonanie gry arkadowej. W grze wcielasz się w studentkę ko
 
 ### Python 3.8, Pygame
 Używamy grafik z rozszerzeniem .jpg i .png, dźwięki .mp3
-
-
-##Wkład autorek:
-**Gabriela Matwiejczyk
-
-**Paulina Żelewska
-
-**Karolina Kulikowska
-
-**Justyna Buczek (Linux)
-- system skakania postaci
-
-
-
